@@ -31,7 +31,7 @@ def dev_pioasm(env):
     if 'windows' in sys_dir: 
         sys_dir = 'windows'
 
-    tool = env.PioPlatform().get_package_dir("tool-wizio-pico")
+    tool = env.PioPlatform().get_package_dir("ec-pico-tool")
     if None == tool:
         print( Fore.RED + '[PIO-ASM] ERROR: The', sys_dir, 'is no supported yet...' )
         return
