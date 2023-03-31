@@ -14,7 +14,7 @@ def get_system():
         sys_dir = 'windows'
     return sys_dir 
 
-class WiziopicoPlatform(PlatformBase):
+class EzpicoPlatform(PlatformBase):
     def is_embedded(self):
         return True
 
