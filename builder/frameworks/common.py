@@ -46,7 +46,7 @@ def ini_file(env): # add defaut keys
 
 def dev_create_template(env):
     ini_file(env)
-    src = join(env.PioPlatform().get_package_dir("framework-wizio-pico"), "templates")
+    src = join(env.PioPlatform().get_package_dir("ez-pico-framework"), "templates")
     dst = do_mkdir( env.subst("$PROJECT_DIR"), "include" )
     do_copy(src, dst, "tusb_config.h")
 
@@ -259,7 +259,7 @@ def dev_finalize(env):
     print()
 
 def dev_config_board(env):
-    src = join(env.PioPlatform().get_package_dir("framework-wizio-pico"), "templates")
+    src = join(env.PioPlatform().get_package_dir("ez-pico-framework"), "templates")
     dst = do_mkdir( env.subst("$PROJECT_DIR"), "include" )
 
     if False == env.wifi:

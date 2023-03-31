@@ -1,48 +1,44 @@
 {
-  "name": "wizio-pico",
-  "title": "WizIO - Raspberry Pi Pico",
-  "description": "Development platform for Raspberry Pi Pico 2021 Georgi Angelov",
-  "homepage": "http://www.wizio.eu/",
+  "name": "ez-pico",
+  "title": "EZ Pico - Raspberry Pi Pico",
+  "description": "Development platform for Raspberry Pi Pico 2040 Microcontroller",
+  "homepage": "https://ecsolutions.se/",
   "license": "Apache-2.0",
   "engines": {
     "platformio": "^5"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Wiz-IO/wizio-pico.git"
+    "url": "https://github.com/ec-solutions/ez-pico"
   },
-  "version": "1.1.1",
+  "version": "1.0.0",
   "packageRepositories": [
     "http://dl.platformio.org/packages/manifest.json"
   ],
   "frameworks": {
       "baremetal": {
-        "package": "framework-wizio-pico",
+        "package": "ez-pico-framework",
         "script": "builder/frameworks/sdk.py"
       },
-      "arduino": {
-        "package": "framework-wizio-pico",
-        "script": "builder/frameworks/arduino.py"
-      },
       "boot2": {
-        "package": "framework-wizio-pico",
+        "package": "ez-pico-framework",
         "script": "builder/frameworks/boot2.py"
       }
 
   },
   "packages": {
-    "framework-wizio-pico": {
+    "ez-pico-framework": {
         "type": "framework",
-        "version": "https://github.com/Wiz-IO/framework-wizio-pico.git"
+        "version": "https://github.com/ec-solutions/ez-pico"
     },
     "toolchain-gccarmnoneeabi": {
         "owner": "platformio",
         "type": "toolchain",
         "version": "~1.70201.0"
     },
-    "tool-wizio-pico": {
+    "ez-pico-tool": {
         "type": "uploader",
-        "version": "https://github.com/Wiz-IO/tool-wizio-pico.git"
+        "version": "https://github.com/ec-solutions/ez-pico-tool"
     }, 
     "tool-pico-openocd": {
       "optional": true,
