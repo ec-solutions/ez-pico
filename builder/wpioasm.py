@@ -1,6 +1,6 @@
 # WizIO 2021 Georgi Angelov
 #   http://www.wizio.eu/
-#   https://github.com/Wiz-IO/wizio-pico
+#   https://github.com/ec-solutions/ez-pico
 
 from __future__ import print_function
 import os, platform

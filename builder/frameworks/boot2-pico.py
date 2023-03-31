@@ -1,6 +1,6 @@
 # WizIO 2021 Georgi Angelov
 #   http://www.wizio.eu/
-#   https://github.com/Wiz-IO/wizio-pico
+#   https://github.com/ec-solutions/ez-pico
 
 import os
 from os.path import join

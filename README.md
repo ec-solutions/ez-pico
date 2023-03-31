@@ -3,7 +3,7 @@
 **A few words in the beginning**
 
 * **Version: 1.1.1** The project is a work in progress, there may be bugs...
-* [Look here, if there is something new](https://github.com/Wiz-IO/wizio-pico/wiki#last-news) 
+* [Look here, if there is something new](https://github.com/ec-solutions/ez-pico/wiki#last-news) 
 * This project is based on [**PICO-SDK**](https://github.com/raspberrypi/pico-sdk)
 * **PICO-SDK** _( the file organization has been restructured to be flexible and have a fast compilation )_
 * * **default SDK 1.4.0** ( backup  1.3.1 ) 
@@ -12,21 +12,21 @@
 * * Baremetal ( pico-sdk, C/C++ ) _baremetal is just a name for pico-sdk here_
 * * Arduino ( in progress... )
 * **Debug** ( in progress... )
-* * [PICOPROBE](https://github.com/Wiz-IO/wizio-pico/wiki/DEBUG#picoprobe) ( Windows for now )
+* * [PICOPROBE](https://github.com/ec-solutions/ez-pico/wiki/DEBUG#picoprobe) ( Windows for now )
 * * CMSIS-DAP [( Windows for now )](https://www.youtube.com/watch?v=SdpsmgRp5Co)
-* **Libraries** [FreeRTOS](https://github.com/Wiz-IO/wizio-pico/wiki/COMMON#freertos), FatFS, littlefs ... etc
-* Basic **[File System](https://github.com/Wiz-IO/wizio-pico/wiki/COMMON#file-system--vfs--virtual-file-system-)** ( RAM disk, FLASH disk, SD card )
-* [**READ WIKI**](https://github.com/Wiz-IO/wizio-pico/wiki/) 
+* **Libraries** [FreeRTOS](https://github.com/ec-solutions/ez-pico/wiki/COMMON#freertos), FatFS, littlefs ... etc
+* Basic **[File System](https://github.com/ec-solutions/ez-pico/wiki/COMMON#file-system--vfs--virtual-file-system-)** ( RAM disk, FLASH disk, SD card )
+* [**READ WIKI**](https://github.com/ec-solutions/ez-pico/wiki/) 
 * [Framework code](https://github.com/Wiz-IO/framework-wizio-pico)
-* [Baremetal Examples](https://github.com/Wiz-IO/wizio-pico-examples/tree/main/baremetal)
-* [Arduino Examples](https://github.com/Wiz-IO/wizio-pico-examples/tree/main/arduino)
+* [Baremetal Examples](https://github.com/ec-solutions/ez-pico-examples/tree/main/baremetal)
+* [Arduino Examples](https://github.com/ec-solutions/ez-pico-examples/tree/main/arduino)
 * [Video demo - Arduino - TFT ST7789](https://www.youtube.com/watch?v=x8Z4btIwf7M)
 * **Systems support**
 * * Windows, Linux, Darwin _(if someone is editing the platform they have to take this into account)_
 
 
 **Notes**
-* Please [Re-Install](https://github.com/Wiz-IO/wizio-pico/blob/main/README.md#fast-uninstal--reinstal--do-this-and-install-again) the platform. The project is a work in progress and the platform is installed from here...
+* Please [Re-Install](https://github.com/ec-solutions/ez-pico/blob/main/README.md#fast-uninstal--reinstal--do-this-and-install-again) the platform. The project is a work in progress and the platform is installed from here...
 * _I am in Home-Office, it's hard for me to test hardwares as SPI, I2C ... etc_
 
 ![pico](https://raw.githubusercontent.com/Wiz-IO/LIB/master/pico/a1.jpg)
@@ -34,7 +34,7 @@
 ## Install Platform
 _Note: be sure [**git**](https://git-scm.com/downloads) is installed_
 * PIO Home > Platforms > Advanced Installation 
-* paste https://github.com/Wiz-IO/wizio-pico
+* paste https://github.com/ec-solutions/ez-pico
 * INSTALL
 
 ## Uninstall ( fast ) ... Re-Install ( do this and Install again )
@@ -59,7 +59,7 @@ PlatformIO -> Home -> New
 * Connect Pico as Mass Storage Device
 * Open **platformio.ini** and edit your settings
 * BUILD / UPLOAD
-* [READ WIKI - BAREMETAL](https://github.com/Wiz-IO/wizio-pico/wiki/BAREMETAL)
+* [READ WIKI - BAREMETAL](https://github.com/ec-solutions/ez-pico/wiki/BAREMETAL)
 
 ## Arduino - New Project
 PlatformIO -> Home -> New
@@ -67,7 +67,7 @@ PlatformIO -> Home -> New
 * Connect Pico as Mass Storage Device
 * Open **platformio.ini** and edit your settings
 * BUILD / UPLOAD
-* [READ WIKI - ARDUINO](https://github.com/Wiz-IO/wizio-pico/wiki/ARDUINO)
+* [READ WIKI - ARDUINO](https://github.com/ec-solutions/ez-pico/wiki/ARDUINO)
 
 ### NOTE
 IF **PICO_STDIO_USB** is used, the Uploader will try ro reset Pico to boot-uf2 mode without button and USB cable remove
