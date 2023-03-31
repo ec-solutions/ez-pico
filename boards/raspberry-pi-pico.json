@@ -2,7 +2,7 @@
   "name": "WizIO - Raspberry Pi Pico ( PICOPROBE )",
   "url": "https://github.com",
   "vendor": "Raspberry Pi",  
-  "frameworks": [ "baremetal", "arduino" ],
+  "frameworks": [ "baremetal" ],
 
   "build": {
     "core"      : "RP2040",

@@ -2,15 +2,15 @@
   "name": "WizIO - Raspberry Pi Pico WiFi ( PICOPROBE )",
   "url": "https://github.com",
   "vendor": "Raspberry Pi",  
-  "frameworks": [ "baremetal", "arduino" ],
+  "frameworks": [ "baremetal" ],
 
   "build": {
-      "core"          : "RP2040",
-      "variant"       : "raspberry-pi-pico-w",
-      "f_cpu"         : "125000000L",
-      "mcu"           : "RP2040",
-      "WIFI"          : true,      
-      "autogen_board" :"pico_w.h"    
+    "core"          : "RP2040",
+    "variant"       : "raspberry-pi-pico-w",
+    "f_cpu"         : "125000000L",
+    "mcu"           : "RP2040",
+    "WIFI"          : true,      
+    "autogen_board" :"pico_w.h"    
   },
 
   "debug": {

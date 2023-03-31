@@ -29,7 +29,7 @@
   "packages": {
     "ez-pico-framework": {
         "type": "framework",
-        "version": "https://github.com/ec-solutions/ez-pico"
+        "version": "https://github.com/ec-solutions/ez-pico-framework"
     },
     "toolchain-gccarmnoneeabi": {
         "owner": "platformio",
