@@ -260,17 +260,21 @@ def dev_config_board(env):
 
         env.Append(
             CPPPATH = [
+                join(env.framework_dir, env.sdk, "src", "boards"),
+                join(env.framework_dir, env.sdk, "src", "common"),
+                join(env.framework_dir, env.sdk, "src", "host"),
+                join(env.framework_dir, env.sdk, "src", "rp2_common"),
+                join(env.framework_dir, env.sdk, "src", "rp2040"),
                 # join(env.framework_dir, env.sdk, "src", "common", "pico_base", "include"),
                 # join(env.framework_dir, env.sdk, "src", "rp2_common"),
-                join(env.framework_dir, env.sdk, "src", "boards", "include", "boards"),
-                join(env.framework_dir, env.sdk, "src", "rp2_common", "pico_lwip", "include", "arch"),
+                # join(env.framework_dir, env.sdk, "src", "boards", "include", "boards"),
+                # join(env.framework_dir, env.sdk, "src", "rp2_common", "pico_lwip", "include", "arch"),
                 # join(env.framework_dir, env.sdk, "src", "rp2_common", "pico_cyw43_driver", "include"),
             ],
         )
 
         env.Append(
             CPPPATH = [
-                join(env.framework_dir, env.sdk, "lib", "lwip", "src", "include"),
                 join(env.framework_dir, env.sdk, "lib", "cyw43-driver", "src"),
                 join(env.framework_dir, env.sdk, "lib", "cyw43-driver", "firmware"),
             ],
