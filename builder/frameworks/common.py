@@ -285,6 +285,7 @@ def dev_config_board(env):
                 join(env.framework_dir, env.sdk, "lib", "lwip", "src", "include", "netif", "ppp", "polarssl"),
 
                 join(env.framework_dir, env.sdk, "src", "boards", "include", "boards"),
+
                 join(env.framework_dir, env.sdk, "src", "common", "boot_picoboot", "include", "boot"),
                 join(env.framework_dir, env.sdk, "src", "common", "boot_uf2", "include", "boot"),
                 join(env.framework_dir, env.sdk, "src", "common", "pico_base", "include"),
@@ -299,6 +300,7 @@ def dev_config_board(env):
                 join(env.framework_dir, env.sdk, "src", "common", "pico_usb_reset_interface", "include", "pico"),
                 join(env.framework_dir, env.sdk, "src", "common", "pico_util"),
                 join(env.framework_dir, env.sdk, "src", "common", "pico_util", "include", "pico", "util"),
+
                 join(env.framework_dir, env.sdk, "src", "host", "hardware_divider", "include", "hardware"),
                 join(env.framework_dir, env.sdk, "src", "host", "hardware_gpio", "include", "hardware"),
                 join(env.framework_dir, env.sdk, "src", "host", "hardware_sync", "include", "hardware"),
@@ -308,9 +310,11 @@ def dev_config_board(env):
                 join(env.framework_dir, env.sdk, "src", "host", "pico_platform", "include", "hardware"),
                 join(env.framework_dir, env.sdk, "src", "host", "pico_platform", "include", "pico"),
                 join(env.framework_dir, env.sdk, "src", "host", "pico_stdio", "include", "pico"),
+
                 join(env.framework_dir, env.sdk, "src", "rp2040", "hardware_regs", "include", "hardware"),
                 join(env.framework_dir, env.sdk, "src", "rp2040", "hardware_regs", "include", "hardware", "regs"),
                 join(env.framework_dir, env.sdk, "src", "rp2040", "hardware_structs", "include", "hardware", "structs"),
+
                 join(env.framework_dir, env.sdk, "src", "rp2_common", "boot_stage2"),
                 join(env.framework_dir, env.sdk, "src", "rp2_common", "boot_stage2", "include", "boot_stage2"),
                 join(env.framework_dir, env.sdk, "src", "rp2_common", "cmsis", "include", "cmsis"),
@@ -376,11 +380,6 @@ def dev_config_board(env):
                 join(env.framework_dir, env.sdk, "src", "rp2_common", "pico_stdio_usb", "include", "pico", "stdio_usb"),
                 join(env.framework_dir, env.sdk, "src", "rp2_common", "pico_unique_id", "include", "pico"),
                 join(env.framework_dir, env.sdk, "src", "rp2_common", "tinyusb"),
-                # join(env.framework_dir, env.sdk, "src", "common", "pico_base", "include"),
-                # join(env.framework_dir, env.sdk, "src", "rp2_common"),
-                # join(env.framework_dir, env.sdk, "src", "boards", "include", "boards"),
-                # join(env.framework_dir, env.sdk, "src", "rp2_common", "pico_lwip", "include", "arch"),
-                # join(env.framework_dir, env.sdk, "src", "rp2_common", "pico_cyw43_driver", "include"),
             ],
         )
 
@@ -391,6 +390,7 @@ def dev_config_board(env):
             ],
         )
 
+        """
         ### pico wifi support
         env.BuildSources( 
             join("$BUILD_DIR", "wifi", "pico"),
@@ -419,7 +419,8 @@ def dev_config_board(env):
             join( "$BUILD_DIR", env.platform, "lwip", "netif" ),
             join( env.framework_dir, env.sdk, "lib", "lwip", "src", "netif" ), 
             [ "-<*>", "+<ethernet.c>", ] # remove ethernet
-        )        
+        )
+        """
 
         ### wifi firmware object
         BUILD_DIR = env.subst("$BUILD_DIR")
