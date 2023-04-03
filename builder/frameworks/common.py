@@ -257,6 +257,17 @@ def dev_config_board(env):
         env.Append(
             CPPDEFINES = [ "PICO_W", 'CYW43_SPI_PIO', 'CYW43_USE_SPI' ],
             CPPPATH = [
+                join(env.framework_dir, env.sdk, "src",),
+                join(env.framework_dir, env.sdk, "src", "rp2_common", "pico_cyw43_driver", "include"),
+                join(env.framework_dir, env.sdk, "lib", "lwip", "src", "include"),
+                join(env.framework_dir, env.sdk, "lib", "cyw43-driver", "src"),
+                join(env.framework_dir, env.sdk, "lib", "cyw43-driver", "firmware"),
+            ],
+        )
+
+        env.Append(
+            CPPDEFINES = [ "PICO_W", 'CYW43_SPI_PIO', 'CYW43_USE_SPI' ],
+            CPPPATH = [
                 join(env.framework_dir, env.sdk, "src", "rp2_common", "pico_cyw43_driver", "include"),
                 join(env.framework_dir, env.sdk, "lib", "lwip", "src", "include"),
                 join(env.framework_dir, env.sdk, "lib", "cyw43-driver", "src"),
