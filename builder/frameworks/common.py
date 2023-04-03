@@ -124,8 +124,8 @@ def dev_compiler(env, application_name = 'APPLICATION'):
             join("$PROJECT_DIR", "src"),
             join("$PROJECT_DIR", "lib"),
             join("$PROJECT_DIR", "include"),
-            join(env.framework_dir, "wizio", "pico"),
-            join(env.framework_dir, "wizio", "newlib"),
+            # join(env.framework_dir, "wizio", "pico"),
+            # join(env.framework_dir, "wizio", "newlib"),
             join(env.framework_dir, env.sdk, "src"),
             # join(env.framework_dir, env.sdk, "cmsis", "include"),
         ],
@@ -197,7 +197,7 @@ def add_libraries(env):
         env.Append( CPPDEFINES = [ "DAP" ], )
 
 def add_boot(env):
-    boot = env.BoardConfig().get("build.boot", "w25q080") # get boot
+    boot = env.BoardConfig().get("build.boot", "w25q080") # get bootloader
     if "w25q080" != boot and "$PROJECT_DIR" in boot:
         boot = boot.replace('$PROJECT_DIR', env["PROJECT_DIR"]).replace("\\", "/")
     bynary_type_info.append(boot)
@@ -235,7 +235,7 @@ def add_bynary_type(env):
 
 def dev_finalize(env):
 # WIZIO
-    env.BuildSources(join("$BUILD_DIR", env.platform, "wizio"), join(env.framework_dir, "wizio"))
+    #env.BuildSources(join("$BUILD_DIR", env.platform, "wizio"), join(env.framework_dir, "wizio"))
 # SDK
     add_bynary_type(env)
     add_sdk(env)
