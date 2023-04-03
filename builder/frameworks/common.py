@@ -262,6 +262,7 @@ def dev_config_board(env):
             CPPDEFINES = [ "PICO_W", 'CYW43_SPI_PIO', 'CYW43_USE_SPI' ],
         )
 
+        """
         env.Append(
             CPPPATH = [
                 join(env.framework_dir, env.sdk, "lib", "cyw43-driver", "firmware"),
@@ -390,7 +391,6 @@ def dev_config_board(env):
             ],
         )
 
-        """
         ### pico wifi support
         env.BuildSources( 
             join("$BUILD_DIR", "wifi", "pico"),
