@@ -263,7 +263,7 @@ def dev_config_board(env):
                 # join(env.framework_dir, env.sdk, "src", "common", "pico_base", "include"),
                 join(env.framework_dir, env.sdk, "src", "rp2_common"),
                 join(env.framework_dir, env.sdk, "src", "boards", "include", "boards"),
-                join(env.framework_dir, env.sdk, "src", "rp2_common", "pico_cyw43_driver", "include"),
+                # join(env.framework_dir, env.sdk, "src", "rp2_common", "pico_cyw43_driver", "include"),
             ],
         )
 
