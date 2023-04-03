@@ -267,7 +267,7 @@ def dev_config_board(env):
         env.BuildSources( 
             join("$BUILD_DIR", "wifi", "pico"),
             join(env.framework_dir, env.sdk),
-            [ "-<*>", "+<pico/pico_cyw43_arch>", "+<pico/pico_lwip>", ]
+            [ "-<*>", "+<pico_cyw43_driver>", "+<pico_cyw43_arch>", "+<pico_lwip>", ]
         )
 
         ### wifi spi driver & firmware
