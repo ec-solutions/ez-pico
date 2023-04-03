@@ -15,13 +15,13 @@ bynary_type_info = []
 
 def do_copy(src, dst, name):
     file_name = join(dst, name)
-    if False == os.path.isfile( file_name ):
-        copyfile( join(src, name), file_name )
+    if False == os.path.isfile(file_name):
+        copyfile(join(src, name), file_name)
     return file_name
 
 def do_mkdir(path, name):
     dir = join(path, name)
-    if False == os.path.isdir( dir ):
+    if False == os.path.isdir(dir):
         try:
             os.mkdir(dir)
         except OSError:
@@ -30,7 +30,7 @@ def do_mkdir(path, name):
     return dir
 
 def ini_file(env): # add defaut keys
-    ini = join( env.subst("$PROJECT_DIR"), 'platformio.ini' )
+    ini = join(env.subst("$PROJECT_DIR"), 'platformio.ini')
     f = open(ini, "r")
     txt = f.read()
     f.close()
@@ -47,7 +47,7 @@ def ini_file(env): # add defaut keys
 def dev_create_template(env):
     ini_file(env)
     src = join(env.PioPlatform().get_package_dir("ez-pico-framework"), "templates")
-    dst = do_mkdir( env.subst("$PROJECT_DIR"), "include" )
+    dst = do_mkdir( env.subst("$PROJECT_DIR"), "include")
     do_copy(src, dst, "tusb_config.h")
 
     if "VFS" in env.GetProjectOption("lib_deps", []) or "USE_VFS" in env.get("CPPDEFINES"):
@@ -57,11 +57,11 @@ def dev_create_template(env):
         if "fatfs" in env.GetProjectOption("lib_deps", []):
             do_copy(src, dst, "ffconf.h")
 
-        dst = do_mkdir( env.subst("$PROJECT_DIR"), join("include", "pico") )
+        dst = do_mkdir(env.subst("$PROJECT_DIR"), join("include", "pico"))
         autogen_filename = join(dst, "config_autogen.h")
-        if False == os.path.isfile( autogen_filename ):
+        if False == os.path.isfile(autogen_filename):
             default_board = "pico.h"
-            autogen_board = env.BoardConfig().get("build.autogen_board", default_board )
+            autogen_board = env.BoardConfig().get("build.autogen_board", default_board)
             f = open(autogen_filename, "w")
             f.write("/* SELECT OTHER BOARD */\n")
             f.write('#include "boards/{}"\n'.format(autogen_board))
@@ -69,17 +69,17 @@ def dev_create_template(env):
 
         dst = join(env.subst("$PROJECT_DIR"), "src")
         if False == os.path.isfile(join(dst, "main.cpp")):
-            do_copy(src, dst, "main.c" )
+            do_copy(src, dst, "main.c")
 
     if 'BOOT-2' == env.get("PROGNAME"):
-        dst = do_mkdir( env.subst("$PROJECT_DIR"), join("include", "pico") )
-        do_copy(src, dst, "config_autogen.h" )
+        dst = do_mkdir( env.subst("$PROJECT_DIR"), join("include", "pico"))
+        do_copy(src, dst, "config_autogen.h")
 
 def dev_nano(env):
     enable_nano = env.BoardConfig().get("build.nano", "enable") # no <sys/lock>
     nano = []
     if enable_nano == "enable":
-        nano = ["-specs=nano.specs", "-u", "_printf_float", "-u", "_scanf_float" ]
+        nano = ["-specs=nano.specs", "-u", "_printf_float", "-u", "_scanf_float"]
     if len(nano) > 0:
         print('  * SPECS        :', nano[0][7:])
     else:
@@ -119,7 +119,11 @@ def dev_compiler(env, application_name = 'APPLICATION'):
     print('  * STACK        :', stack_size)
     print('  * HEAP         :', env.heap_size)
     env.Append(
-        ASFLAGS=[ cortex, "-x", "assembler-with-cpp" ],
+        ASFLAGS=[
+            cortex,
+            "-x",
+            "assembler-with-cpp"
+        ],
         CPPPATH = [
             join("$PROJECT_DIR", "src"),
             join("$PROJECT_DIR", "lib"),
@@ -190,11 +194,11 @@ def dev_compiler(env, application_name = 'APPLICATION'):
         UPLOADCMD = dev_uploader
     )
     if False == env.wifi:
-        env.Append( CPPDEFINES = [ "PICO_WIFI" ] )    
+        env.Append(CPPDEFINES = [ "PICO_WIFI" ])
 
 def add_libraries(env):
     if "cmsis-dap" in env.GetProjectOption("lib_deps", []):
-        env.Append( CPPDEFINES = [ "DAP" ], )
+        env.Append(CPPDEFINES = [ "DAP" ])
 
 def add_boot(env):
     boot = env.BoardConfig().get("build.boot", "w25q080") # get bootloader
@@ -235,7 +239,7 @@ def add_bynary_type(env):
 
 def dev_finalize(env):
 # WIZIO
-    #env.BuildSources(join("$BUILD_DIR", env.platform, "wizio"), join(env.framework_dir, "wizio"))
+    env.BuildSources(join("$BUILD_DIR", env.platform, "wizio"), join(env.framework_dir, "wizio"))
 # SDK
     add_bynary_type(env)
     add_sdk(env)
