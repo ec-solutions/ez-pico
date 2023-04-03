@@ -257,10 +257,11 @@ def dev_config_board(env):
         env.Append(
             CPPDEFINES = [ "PICO_W", 'CYW43_SPI_PIO', 'CYW43_USE_SPI' ],
             CPPPATH = [
-                join( env.framework_dir, env.sdk, "lib", "lwip", "src", "include" ),
-                join( env.framework_dir, env.sdk, "lib", "cyw43-driver", "src" ),
-                join( env.framework_dir, env.sdk, "lib", "cyw43-driver", "firmware" ),
-            ],            
+                join(env.framework_dir, env.sdk, "src", "rp2_common", "pico_cyw43_driver", "include"),
+                join(env.framework_dir, env.sdk, "lib", "lwip", "src", "include"),
+                join(env.framework_dir, env.sdk, "lib", "cyw43-driver", "src"),
+                join(env.framework_dir, env.sdk, "lib", "cyw43-driver", "firmware"),
+            ],
         )
 
         ### pico wifi support
@@ -303,16 +304,16 @@ def dev_config_board(env):
         old_name = WIFI_FIRMWARE_BIN
         old_name = '_binary_' + old_name.replace('\\', '_').replace('/', '_').replace('.', '_').replace(':', '_').replace('-', '_')
         cmd = [ "$OBJCOPY", "-I", "binary", "-O", "elf32-littlearm", "-B", "arm", "--readonly-text",
-                "--rename-section", ".data=.big_const,contents,alloc,load,readonly,data",
-                "--redefine-sym", old_name + "_start=fw_43439A0_7_95_49_00_start",
-                "--redefine-sym", old_name + "_end=fw_43439A0_7_95_49_00_end",
-                "--redefine-sym", old_name + "_size=fw_43439A0_7_95_49_00_size",
-                WIFI_FIRMWARE_BIN, # SOURCE BIN
-                WIFI_FIRMWARE_OBJ  # TARGET OBJ
+            "--rename-section", ".data=.big_const,contents,alloc,load,readonly,data",
+            "--redefine-sym", old_name + "_start=fw_43439A0_7_95_49_00_start",
+            "--redefine-sym", old_name + "_end=fw_43439A0_7_95_49_00_end",
+            "--redefine-sym", old_name + "_size=fw_43439A0_7_95_49_00_size",
+            WIFI_FIRMWARE_BIN, # SOURCE BIN
+            WIFI_FIRMWARE_OBJ  # TARGET OBJ
         ]
         env.AddPreAction( 
-                join("$BUILD_DIR", "wifi" , "cyw43-driver", "cyw43_bus_pio_spi.o"), # TRIGER
-                env.VerboseAction(" ".join(cmd), "Compiling wifi/firmware/wifi_firmware.o")
+            join("$BUILD_DIR", "wifi" , "cyw43-driver", "cyw43_bus_pio_spi.o"), # TRIGER
+            env.VerboseAction(" ".join(cmd), "Compiling wifi/firmware/wifi_firmware.o")
         )       
         print( "  * WIFI         : Compile Firmware Object" )
         env.Append(LINKFLAGS = [ WIFI_FIRMWARE_OBJ ])
